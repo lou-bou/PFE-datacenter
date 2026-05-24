@@ -1,0 +1,19 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\begingroup
+\small
+\linespread{1.05}\selectfont
+\setlength{\parskip}{0.3em}
+
+This dissertation, prepared for the Licence degree in ISIL at USTHB, presents the design and simulation of a modern data center network architecture suited to highly available enterprise workloads. The project adopts a spine-leaf topology with full-mesh connectivity between eight Top-of-Rack leaf switches and two End-of-Rack spine switches, complemented by zone-based security at the network edge. The infrastructure is realized in a virtual laboratory: PNETLab emulates the switching and firewall fabric, while VMware Workstation hosts Linux servers distributed across four cabinets.
+
+The proposed facility organizes four cabinets into distinct roles and security zones. Cabinets A, B, and C form the Trust zone, hosting database and application servers; Cabinet D hosts web-facing services in the DMZ. Two perimeter firewalls operate in an active-standby cluster using CARP, enforcing strict separation so that external or DMZ compromise cannot reach internal databases without explicit policy. Each of the eight servers connects through dual management and service network interfaces, bonded for resilience and mapped to dedicated VLANs for management (110, 210), database (120), application (130), and web (220) traffic. At every layer (firewall, spine, and leaf), redundancy eliminates single points of failure: MLAG pairs at ToR and EoR and VRRP/CARP gateways.
+
+The design is specified through functional and non-functional requirements, actor responsibilities, UML use-case and sequence models, a high-level topology, and low-level documentation including device inventory, IP addressing, and port-level cabling matrices. The implementation stack combines PNETLab, VMware Workstation Pro, Arista vEOS switches, pfSense firewalls, and Debian servers. Switches were configured with VLANs, trunk and access Port-Channels, MLAG domains, and management SVIs; firewalls with zone-based rules and default-deny policies; servers with active-backup bonding on management and service planes.
+
+End-to-end validation combined connectivity testing and deliberate failure injection. ICMP tests confirmed allowed flows within and across cabinets on both management and service networks, as well as blocked DMZ-to-Trust management paths where policy required denial. Shutting down active firewalls, spine switches, and leaf switches demonstrated sub-second failover to standby nodes without loss of forwarding. Together, these results confirm that the architecture meets its redundancy, security, and manageability objectives.
+
+The outcome is a coherent, fully documented, and rigorously tested blueprint, from topology and addressing through configuration templates and test evidence, that translates modern spine-leaf and zero-trust zoning principles into a production-ready enterprise data center design.
+
+\endgroup

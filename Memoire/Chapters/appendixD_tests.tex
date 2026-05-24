@@ -1,0 +1,60 @@
+\chapter{Appendix D: Connectivity Test Results}
+\label{app:tests}
+
+\section{Basic connectivity tests}
+\addcontentsline{toc}{section}{D.1 Basic connectivity tests}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server1_to_server2_management.png}
+    \caption{Ping test: Server~1 $\rightarrow$ Server~2 (management, 10.10.10.2).}
+    \label{fig:app-test-s1-s2-mgmt}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server1_to_server2_service.png}
+    \caption{Ping test: Server~1 $\rightarrow$ Server~2 (service, 10.10.20.2).}
+    \label{fig:app-test-s1-s2-svc}
+\end{figure}
+
+\section{Intra-zone connectivity tests}
+\addcontentsline{toc}{section}{D.2 Intra-zone connectivity tests}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server1_to_server3_service.png}
+    \caption{Ping test: Server~1 $\rightarrow$ Server~3 (service, 10.10.20.3).}
+    \label{fig:app-test-s1-s3-svc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server1_to_server5_service.png}
+    \caption{Ping test: Server~1 $\rightarrow$ Server~5 (service, 10.10.30.1).}
+    \label{fig:app-test-s1-s5-svc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server7_to_server8_service.png}
+    \caption{Ping test: Server~7 $\rightarrow$ Server~8 (service, 10.20.20.2).}
+    \label{fig:app-test-s7-s8-svc}
+\end{figure}
+
+\section{Inter-zone security tests}
+\addcontentsline{toc}{section}{D.3 Inter-zone security tests}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server1_to_server7_management.png}
+    \caption{Ping test: Server~1 $\rightarrow$ Server~7 (management, 10.20.10.1), permitted.}
+    \label{fig:app-test-s1-s7-mgmt}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio]{figures/tests/server7_to_server1_management(blocked).png}
+    \caption{Ping test: Server~7 $\rightarrow$ Server~1 (management, 10.10.10.1), blocked.}
+    \label{fig:app-test-s7-s1-mgmt-block}
+\end{figure}

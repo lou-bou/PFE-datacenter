@@ -1,0 +1,228 @@
+\section{ToR uplinks to EoRs}
+\addcontentsline{toc}{section}{C.5 ToR uplinks to EoRs}
+
+The following scripts configure the MLAG uplink (Port-Channel6) from each ToR to both EoR switches. Cabinets A and B trunk VLANs 110 and 120; Cabinet C trunks 110 and 130; Cabinet D trunks 210 and 220.
+
+\subsection{ToR A-1}
+\addcontentsline{toc}{section}{C.5.1 ToR A-1}
+\begin{lstlisting}[caption={ToR A-1: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR A-2}
+\addcontentsline{toc}{section}{C.5.2 ToR A-2}
+\begin{lstlisting}[caption={ToR A-2: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR B-1}
+\addcontentsline{toc}{section}{C.5.3 ToR B-1}
+\begin{lstlisting}[caption={ToR B-1: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR B-2}
+\addcontentsline{toc}{section}{C.5.4 ToR B-2}
+\begin{lstlisting}[caption={ToR B-2: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR C-1}
+\addcontentsline{toc}{section}{C.5.5 ToR C-1}
+\begin{lstlisting}[caption={ToR C-1: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR C-2}
+\addcontentsline{toc}{section}{C.5.6 ToR C-2}
+\begin{lstlisting}[caption={ToR C-2: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR D-1}
+\addcontentsline{toc}{section}{C.5.7 ToR D-1}
+\begin{lstlisting}[caption={ToR D-1: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{ToR D-2}
+\addcontentsline{toc}{section}{C.5.8 ToR D-2}
+\begin{lstlisting}[caption={ToR D-2: uplinks to EoR-1 and EoR-2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet5
+  description Uplink_EoR1
+  no shutdown
+  channel-group 6 mode on
+
+interface Ethernet6
+  description Uplink_EoR2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel6
+  description Uplink_EoR_MLAG
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 6
+  no shutdown
+
+end
+write memory
+\end{lstlisting}

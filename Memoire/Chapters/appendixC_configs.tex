@@ -1,0 +1,1028 @@
+% Appendix C: server network configuration scripts
+\chapter{Appendix C: Device Configurations and Scripts}
+\label{app:configs}
+
+\section{Server network configurations}
+\addcontentsline{toc}{section}{C.1 Server network configurations}
+
+The following listings show the \texttt{/etc/network/interfaces} configuration applied on each Linux server (Servers~1--8), in cabinet order.
+
+\subsection{Server 1}
+\addcontentsline{toc}{section}{C.1.1 Server 1}
+\begin{lstlisting}[caption={Server 1: network interfaces (Cabinet A).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.1
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.20.1
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 2}
+\addcontentsline{toc}{section}{C.1.2 Server 2}
+\begin{lstlisting}[caption={Server 2: network interfaces (Cabinet A).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.2
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.20.2
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 3}
+\addcontentsline{toc}{section}{C.1.3 Server 3}
+\begin{lstlisting}[caption={Server 3: network interfaces (Cabinet B).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.3
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.20.3
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 4}
+\addcontentsline{toc}{section}{C.1.4 Server 4}
+\begin{lstlisting}[caption={Server 4: network interfaces (Cabinet B).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.4
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.20.4
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 5}
+\addcontentsline{toc}{section}{C.1.5 Server 5}
+\begin{lstlisting}[caption={Server 5: network interfaces (Cabinet C).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.5
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.30.1
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 6}
+\addcontentsline{toc}{section}{C.1.6 Server 6}
+\begin{lstlisting}[caption={Server 6: network interfaces (Cabinet C).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.10.10.6
+    netmask 255.255.255.0
+    gateway 10.10.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.10.30.2
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 7}
+\addcontentsline{toc}{section}{C.1.7 Server 7}
+\begin{lstlisting}[caption={Server 7: network interfaces (Cabinet D, DMZ).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.20.10.1
+    netmask 255.255.255.0
+    gateway 10.20.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.20.20.1
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\subsection{Server 8}
+\addcontentsline{toc}{section}{C.1.8 Server 8}
+\begin{lstlisting}[caption={Server 8: network interfaces (Cabinet D, DMZ).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug eth0
+iface eth0 inet manual
+
+allow-hotplug eth1
+iface eth1 inet manual
+
+allow-hotplug eth2
+iface eth2 inet manual
+
+allow-hotplug eth3
+iface eth3 inet manual
+
+auto bond0
+iface bond0 inet static
+    address 10.20.10.2
+    netmask 255.255.255.0
+    gateway 10.20.10.254
+    bond-slaves eth0 eth2
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+
+auto bond1
+iface bond1 inet static
+    address 10.20.20.2
+    netmask 255.255.255.0
+    bond-slaves eth1 eth3
+    bond-mode active-backup
+    bond-miimon 100
+    bond-updelay 200
+    bond-downdelay 200
+\end{lstlisting}
+
+\section{Firewall configuration (FW-1 and FW-2)}
+\addcontentsline{toc}{section}{C.2 Firewall configuration (FW-1 and FW-2)}
+
+Both firewalls run pfSense and are configured identically except for their individual interface IPs. Configuration is performed through the pfSense web GUI and follows seven sequential phases.
+
+\subsection{LAGG interface creation}
+\addcontentsline{toc}{section}{C.2.1 LAGG interface creation}
+
+Navigate to \texttt{Interfaces} $\rightarrow$ \texttt{LAGGs} $\rightarrow$ \texttt{Add} and configure the link aggregation group:
+
+\begin{itemize}[nosep]
+    \item Parent interfaces: \texttt{vtnet0} and \texttt{vtnet1}
+    \item LAGG protocol: LACP
+    \item LACP timeout: Slow
+    \item Hash algorithm: Layer 2/3/4
+    \item Description: \texttt{Uplink-to-EoR}
+\end{itemize}
+
+\subsection{VLAN creation}
+\addcontentsline{toc}{section}{C.2.2 VLAN creation}
+
+Navigate to \texttt{Interfaces} $\rightarrow$ \texttt{VLANs} $\rightarrow$ \texttt{Add} and create five VLAN sub-interfaces on \texttt{lagg0}:
+
+\begin{table}[htbp]
+    \centering
+    \caption{VLAN sub-interfaces on \texttt{lagg0}.}
+    \label{tab:fw-vlans}
+    \begin{tabular}{|l|c|l|}
+        \hline
+        \textbf{Parent} & \textbf{VLAN tag} & \textbf{Description} \\
+        \hline
+        lagg0 & 110 & Management \\
+        lagg0 & 120 & Database \\
+        lagg0 & 130 & App \\
+        lagg0 & 210 & DMZ-Management \\
+        lagg0 & 220 & DMZ-Service \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Interface assignment}
+\addcontentsline{toc}{section}{C.2.3 Interface assignment}
+
+Navigate to \texttt{Interfaces} $\rightarrow$ \texttt{Interface Assignments} and add each sub-interface in order:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Firewall interface assignments.}
+    \label{tab:fw-if-assign}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Sub-interface} & \textbf{Assigned name} \\
+        \hline
+        lagg0.110 & OPT1 \\
+        lagg0.120 & OPT2 \\
+        lagg0.130 & OPT3 \\
+        lagg0.210 & OPT4 \\
+        lagg0.220 & OPT5 \\
+        vtnet2 & OPT6 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Interface IP configuration}
+\addcontentsline{toc}{section}{C.2.4 Interface IP configuration}
+
+Navigate to \texttt{Interfaces} $\rightarrow$ \texttt{OPTx} for each interface and apply the following static IPv4 addresses. All interfaces are enabled with IPv4 configuration type set to Static.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Firewall interface IP addresses (FW-1 and FW-2).}
+    \label{tab:fw-ips}
+    \begin{tabular}{|l|l|c|c|}
+        \hline
+        \textbf{Interface} & \textbf{Description} & \textbf{FW-1 address} & \textbf{FW-2 address} \\
+        \hline
+        OPT1 (lagg0.110) & MGMT & 10.10.10.220/24 & 10.10.10.221/24 \\
+        OPT2 (lagg0.120) & DATABASE & 10.10.20.220/24 & 10.10.20.221/24 \\
+        OPT3 (lagg0.130) & APP\_SERVER & 10.10.30.220/24 & 10.10.30.221/24 \\
+        OPT4 (lagg0.210) & DMZMANAGEMENT & 10.20.10.220/24 & 10.20.10.221/24 \\
+        OPT5 (lagg0.220) & DMZSERVICE & 10.20.20.220/24 & 10.20.20.221/24 \\
+        OPT6 (vtnet2) & PFSYNC & 10.254.1.1/30 & 10.254.1.2/30 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{CARP virtual IP creation}
+\addcontentsline{toc}{section}{C.2.5 CARP virtual IP creation}
+
+Navigate to \texttt{Firewall} $\rightarrow$ \texttt{Virtual IPs} $\rightarrow$ \texttt{Add} and create five CARP virtual IPs on FW-1 only. FW-2 receives them automatically via XMLRPC synchronization. All VIPs use the same virtual IP password for CARP advertisement.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{CARP virtual gateway addresses (configured on FW-1).}
+    \label{tab:fw-carp}
+    \begin{tabular}{|l|c|c|c|l|}
+        \hline
+        \textbf{Interface} & \textbf{Type} & \textbf{Virtual address} & \textbf{VHID} & \textbf{Description} \\
+        \hline
+        MGMT & CARP & 10.10.10.254/24 & 10 & Management gateway \\
+        DATABASE & CARP & 10.10.20.254/24 & 20 & Database gateway \\
+        APP\_SERVER & CARP & 10.10.30.254/24 & 30 & App gateway \\
+        DMZMANAGEMENT & CARP & 10.20.10.254/24 & 40 & DMZ-Mgmt gateway \\
+        DMZSERVICE & CARP & 10.20.20.254/24 & 50 & DMZ-Service gateway \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{High availability synchronization}
+\addcontentsline{toc}{section}{C.2.6 High availability synchronization}
+
+Navigate to \texttt{System} $\rightarrow$ \texttt{High Availability Sync} and configure state and configuration synchronization between the two firewalls over the dedicated PFSYNC interface.
+
+\textbf{On FW-1:}
+\begin{itemize}[nosep]
+    \item Synchronize states: enabled
+    \item Synchronize interface: PFSYNC
+    \item pfsync peer IP: 10.254.1.2
+    \item XMLRPC sync target IP: 10.254.1.2
+    \item Items synchronized: Firewall Rules, Firewall Aliases, NAT Configuration, Static Routes, Virtual IPs
+\end{itemize}
+
+\textbf{On FW-2:}
+\begin{itemize}[nosep]
+    \item Synchronize states: enabled
+    \item Synchronize interface: PFSYNC
+    \item pfsync peer IP: 10.254.1.1
+    \item XMLRPC section left empty (FW-2 is the sync target, not the source)
+\end{itemize}
+
+\subsection{Firewall rules}
+\addcontentsline{toc}{section}{C.2.7 Firewall rules}
+
+Navigate to \texttt{Firewall} $\rightarrow$ \texttt{Rules} $\rightarrow$ \texttt{Floating} and apply the following rules in order:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Block} -- IPv4 ICMP -- Source: DMZ zone networks $\rightarrow$ Destination: Trust zone networks (prevents DMZ from initiating ICMP into the Trust zone)
+    \item \textbf{Allow} -- IPv4 ICMP -- Source: any $\rightarrow$ Destination: any (permits all other ICMP traffic)
+    \item \textbf{Allow} -- IPv4 TCP -- Source: MANAGEMENT subnets $\rightarrow$ Destination: any (permits management plane SSH access)
+    \item \textbf{Allow} -- IPv4 TCP -- Source: APP\_SERVER subnets $\rightarrow$ Destination: DATABASE subnets (permits application-to-database traffic)
+    \item \textbf{Allow} -- IPv4 TCP -- Source: APP\_SERVER subnets $\rightarrow$ Destination: DMZSERVICE subnets (permits application servers to reach DMZ web tier)
+    \item \textbf{Allow} -- IPv4 TCP -- Source: DMZMANAGEMENT subnets $\rightarrow$ Destination: DMZSERVICE subnets (permits DMZ management to DMZ service traffic)
+    \item \textbf{Block} -- IPv4 TCP -- Source: any $\rightarrow$ Destination: any (default-deny rule for all remaining TCP traffic)
+\end{enumerate}
+
+\section{ToR downlinks to servers}
+\addcontentsline{toc}{section}{C.3 ToR downlinks to servers}
+
+The following Arista CLI scripts configure server-facing access ports and Port-Channels (Po2--Po5) on each ToR switch.
+
+\subsection{Cabinet A -- ToR A-1}
+\addcontentsline{toc}{section}{C.3.1 Cabinet A -- ToR A-1}
+\begin{lstlisting}[caption={ToR A-1: downlinks to Servers 1 and 2.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server1_NIC_M1
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server1_NIC_S1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server2_NIC_M1
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server2_NIC_S1
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server1_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server1_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server2_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server2_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet A -- ToR A-2}
+\addcontentsline{toc}{section}{C.3.2 Cabinet A -- ToR A-2}
+\begin{lstlisting}[caption={ToR A-2: downlinks to Servers 1 and 2 (backup NICs).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server1_NIC_M2
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server1_NIC_S2
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server2_NIC_M2
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server2_NIC_S2
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server1_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server1_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server2_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server2_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet B -- ToR B-1}
+\addcontentsline{toc}{section}{C.3.3 Cabinet B -- ToR B-1}
+\begin{lstlisting}[caption={ToR B-1: downlinks to Servers 3 and 4.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server3_NIC_M1
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server3_NIC_S1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server4_NIC_M1
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server4_NIC_S1
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server3_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server3_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server4_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server4_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet B -- ToR B-2}
+\addcontentsline{toc}{section}{C.3.4 Cabinet B -- ToR B-2}
+\begin{lstlisting}[caption={ToR B-2: downlinks to Servers 3 and 4 (backup NICs).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server3_NIC_M2
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server3_NIC_S2
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server4_NIC_M2
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server4_NIC_S2
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server3_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server3_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server4_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server4_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 120
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet C -- ToR C-1}
+\addcontentsline{toc}{section}{C.3.5 Cabinet C -- ToR C-1}
+\begin{lstlisting}[caption={ToR C-1: downlinks to Servers 5 and 6.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server5_NIC_M1
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server5_NIC_S1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server6_NIC_M1
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server6_NIC_S1
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server5_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server5_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 130
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server6_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server6_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 130
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet C -- ToR C-2}
+\addcontentsline{toc}{section}{C.3.6 Cabinet C -- ToR C-2}
+\begin{lstlisting}[caption={ToR C-2: downlinks to Servers 5 and 6 (backup NICs).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server5_NIC_M2
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server5_NIC_S2
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server6_NIC_M2
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server6_NIC_S2
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server5_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server5_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 130
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server6_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 110
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server6_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 130
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet D -- ToR D-1}
+\addcontentsline{toc}{section}{C.3.7 Cabinet D -- ToR D-1}
+\begin{lstlisting}[caption={ToR D-1: downlinks to Servers 7 and 8 (DMZ).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server7_NIC_M1
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server7_NIC_S1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server8_NIC_M1
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server8_NIC_S1
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server7_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 210
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server7_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 220
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server8_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 210
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server8_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 220
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{Cabinet D -- ToR D-2}
+\addcontentsline{toc}{section}{C.3.8 Cabinet D -- ToR D-2}
+\begin{lstlisting}[caption={ToR D-2: downlinks to Servers 7 and 8 (DMZ, backup NICs).},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet1
+  description Server7_NIC_M2
+  no shutdown
+  channel-group 2 mode on
+
+interface Ethernet2
+  description Server7_NIC_S2
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet3
+  description Server8_NIC_M2
+  no shutdown
+  channel-group 4 mode on
+
+interface Ethernet4
+  description Server8_NIC_S2
+  no shutdown
+  channel-group 5 mode on
+
+interface Port-Channel2
+  description Server7_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 210
+  mlag 2
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel3
+  description Server7_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 220
+  mlag 3
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel4
+  description Server8_MGMT
+  switchport
+  switchport mode access
+  switchport access vlan 210
+  mlag 4
+  spanning-tree portfast
+  no shutdown
+
+interface Port-Channel5
+  description Server8_SERVICE
+  switchport
+  switchport mode access
+  switchport access vlan 220
+  mlag 5
+  spanning-tree portfast
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\input{Chapters/appendixC_tors_initial_setup}
+\input{Chapters/appendixC_tors_uplinks_eor}
+\input{Chapters/appendixC_eors}

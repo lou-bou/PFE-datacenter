@@ -1,0 +1,252 @@
+\chapter{DEFINITIONS}
+\label{app:definitions}
+
+\section*{A.1 Network Architecture Definitions}
+\addcontentsline{toc}{section}{A.1 Network Architecture Definitions}
+
+\subsection*{Spine Switch}
+\label{def:spine}
+A \textbf{spine switch} forms the core forwarding layer in spine-leaf architecture. 
+It connects only to leaf switches (no direct server connections) and operates 
+at Layer 3 for routing between leaf switches. In our design, EoR-1 and EoR-2 
+serve as spine switches.
+
+\subsection*{Leaf Switch (ToR)}
+\label{def:leaf}
+A \textbf{leaf switch} (Top of Rack) provides server connectivity in the access 
+layer. It connects to servers via access ports and uplinks to all spine switches 
+via trunk ports. In our design, we have eight leaf switches (ToR A-1 through 
+ToR D-2).
+
+\subsection*{Spine-Leaf Architecture}
+\label{def:spineleaf}
+\textbf{Spine-Leaf architecture} is a two-tier network topology where every 
+leaf switch connects to every spine switch in a full mesh. Any server reaches 
+any other server in exactly two hops, providing consistent latency and ECMP 
+load balancing.
+
+\subsection*{Three-Tier Architecture}
+\label{def:threetier}
+\textbf{Three-Tier architecture} is a traditional data center architecture 
+consisting of core layer (backbone), aggregation layer (policy enforcement), 
+and access layer (server connectivity). Designed for north-south traffic.
+
+\subsection*{EoR (End of Row)}
+\label{def:eor}
+An \textbf{End-of-Row switch} is placed at the end of a row of server racks, 
+connecting all servers in that row. In our design, EoR-1 and EoR-2 function as 
+spine switches.
+
+\subsection*{ToR (Top of Rack)}
+\label{def:tor}
+A \textbf{Top-of-Rack switch} is located at the top of a server cabinet, 
+connecting all servers within that cabinet. In our design, we have eight 
+ToR switches (two per cabinet).
+
+\subsection*{Full Mesh}
+\label{def:fullmesh}
+\textbf{Full mesh} is a topology where every device connects directly to every 
+other device. In spine-leaf architecture, every leaf switch connects to every 
+spine switch.
+\subsection*{Cluster}
+\label{def:cluster}
+A \textbf{cluster} is a group of physical servers that act as a single 
+logical unit to provide high availability and load balancing. In our 
+project, one Linux instance represents a cluster of four physical servers.
+
+\section*{A.2 VLAN and Switching Definitions}
+\addcontentsline{toc}{section}{A.2 VLAN and Switching Definitions}
+
+\subsection*{VLAN (Virtual Local Area Network)}
+\label{def:vlan}
+A \textbf{VLAN} is a logical subdivision of a physical network that groups 
+devices based on function or security requirements rather than physical 
+location. VLANs isolate traffic, reduce broadcast domains, and improve 
+security.
+
+\subsection*{Trunk Port}
+\label{def:trunk}
+A \textbf{trunk port} is a switch port that carries traffic for multiple 
+VLANs simultaneously using 802.1Q tagging. Used for inter-switch connections.
+
+\subsection*{Access Port}
+\label{def:accessport}
+An \textbf{access port} is a switch port that belongs to a single VLAN and 
+carries untagged traffic. Used for connecting end devices like servers.
+
+\section*{A.3 Redundancy and High Availability Definitions}
+\addcontentsline{toc}{section}{A.3 Redundancy and High Availability Definitions}
+
+\subsection*{VRRP (Virtual Router Redundancy Protocol)}
+\label{def:vrrp}
+\textbf{VRRP} is a protocol that allows multiple routers to share a single 
+virtual IP address. If the master router fails, a backup takes over 
+automatically within seconds, providing gateway redundancy.
+
+\subsection*{MLAG (Multi-Chassis Link Aggregation)}
+\label{def:mlag}
+\textbf{MLAG} is a technology that allows two physical switches to appear as 
+a single logical switch to connected devices. In our design, MLAG pairs operate 
+in active-standby mode with master/backup switches.
+
+\subsection*{Active-Active}
+\label{def:activeactive}
+\textbf{Active-active} is an alternative redundancy mode where both devices forward traffic 
+simultaneously. This mode is not used in our design.
+
+\subsection*{Active-Standby}
+\label{def:activestandby}
+\textbf{Active-standby} is a redundancy mode where one device (master) handles 
+all traffic while the other (standby) remains idle until the master fails. 
+VRRP uses this mode for gateways and firewalls. MLAG pairs at the ToR and EoR 
+layers also operate in active-standby mode in our design.
+
+\subsection*{Failover}
+\label{def:failover}
+\textbf{Failover} is the automatic switching from a failed primary component 
+to a redundant backup component.
+
+\section*{A.4 Security Definitions}
+\addcontentsline{toc}{section}{A.4 Security Definitions}
+
+\subsection*{DMZ (Demilitarized Zone)}
+\label{def:dmz}
+\textbf{DMZ} is a semi-trusted zone for public-facing services such as web 
+servers. It sits between the internet (untrust) and the internal network 
+(trust). Accessible from internet on specific ports (HTTP/HTTPS).
+
+\subsection*{Trust Zone}
+\label{def:trust}
+The \textbf{Trust zone} is the most secure zone for internal services including 
+application servers, database servers, and management networks. No direct 
+internet access.
+
+\subsection*{Untrust Zone}
+\label{def:untrust}
+The \textbf{Untrust zone} represents all external networks (internet) and is 
+considered completely untrusted. All traffic must pass through firewall 
+inspection.
+
+\subsection*{Firewall}
+\label{def:firewall}
+A \textbf{firewall} is a security device that inspects and filters network 
+traffic based on configured rules. Enforces zone-based security policies and 
+performs stateful packet inspection.
+
+\subsection*{NAT (Network Address Translation)}
+\label{def:nat}
+\textbf{NAT} is a method that maps private IP addresses to public IP addresses, 
+allowing internal devices to communicate with the internet while hiding 
+internal network structure.
+
+\section*{A.5 Virtualization Definitions}
+\addcontentsline{toc}{section}{A.5 Virtualization Definitions}
+
+\subsection*{Hypervisor}
+\label{def:hypervisor}
+A \textbf{hypervisor} is software that creates and runs virtual machines by 
+abstracting the underlying physical hardware (e.g., VMware ESXi).
+
+\subsection*{Virtual Machine (VM)}
+\label{def:vm}
+A \textbf{virtual machine} is an emulation of a computer system that runs its 
+own operating system on top of a hypervisor.
+
+\subsection*{Server Cluster}
+\label{def:servercluster}
+A \textbf{server cluster} is a group of physical servers that act as a single 
+logical unit for high availability and load balancing. In our project, one 
+Linux instance represents a cluster.
+
+\subsection*{VMware}
+\label{def:vmware}
+\textbf{VMware} is a virtualization platform that allows running multiple 
+virtual machines on a single physical server.
+
+\section*{A.6 Simulation and Tools Definitions}
+\addcontentsline{toc}{section}{A.6 Simulation and Tools Definitions}
+
+\subsection*{eNSP (Enterprise Network Simulation Platform)}
+\label{def:ensp}
+\textbf{eNSP} is Huawei's official network simulation platform for designing 
+and testing networks without physical hardware. Requires VirtualBox 5.2.44.
+
+\subsection*{PNETLab (Practical Networking Lab)}
+\label{def:pnetlab}
+\textbf{PNETLab} is a community-maintained network simulation platform 
+(EVE-NG fork) that runs on VMware and supports multiple device images 
+(Arista vEOS, Debian Linux, Huawei CE12800).
+
+\subsection*{Arista vEOS}
+\label{def:veos}
+\textbf{Arista vEOS} (Virtual Extensible Operating System) is Arista's virtual 
+network device emulator used in our project for spine and leaf switches. 
+Supports VLANs, trunk ports, VRRP, OSPF, and MLAG with 2GB RAM per instance.
+
+\subsection*{VMware Workstation Pro}
+\label{def:vmwareworkstation}
+\textbf{VMware Workstation Pro} is a Type-2 hypervisor used to host the 
+PNETLab virtual machine, providing hardware virtualization support.
+
+\subsection*{PuTTY}
+\label{def:putty}
+\textbf{PuTTY} is a free SSH and Telnet client used in our project to access 
+network devices and servers for configuration and testing.
+
+\subsection*{VPCS (Virtual PC Simulator)}
+\label{def:vpcs}
+\textbf{VPCS} is a lightweight tool included with PNETLab that simulates a 
+simple PC. Limited to one IP address per device, replaced by Linux Tiny Core.
+
+\section*{A.7 Server and Network Interface Definitions}
+\addcontentsline{toc}{section}{A.7 Server and Network Interface Definitions}
+
+\subsection*{NIC (Network Interface Card)}
+\label{def:nic}
+A \textbf{NIC} (Network Interface Card) is a hardware component that connects 
+a server to a network. In our design, each server has four NICs (M1, M2, S1, S2).
+
+\subsection*{Management Network (M1/M2)}
+\label{def:management}
+The \textbf{management network} is the network interface used by administrators 
+to access servers for configuration, monitoring, and maintenance. Isolated 
+from service traffic.
+
+\subsection*{Service Network (S1/S2)}
+\label{def:service}
+The \textbf{service network} is the network interface used for application 
+traffic between servers (web to app, app to database). Separate from 
+management network for security.
+
+\section*{A.8 Documentation Definitions}
+\addcontentsline{toc}{section}{A.8 Documentation Definitions}
+
+\subsection*{HLD (High-Level Design)}
+\label{def:hld}
+\textbf{HLD} (High-Level Design) is a top-level design document showing the 
+overall architecture, major components, and their relationships without 
+implementation details.
+
+\subsection*{LLD (Low-Level Design)}
+\label{def:lld}
+\textbf{LLD} (Low-Level Design) is a detailed design document containing 
+specific IP addresses, VLAN assignments, port connections, configuration 
+commands, and implementation procedures.
+
+\subsection*{UML (Unified Modeling Language)}
+\label{def:uml}
+\textbf{UML} (Unified Modeling Language) is a standardized modeling language 
+used to visualize system design. In our project, we used use case diagrams 
+and sequence diagrams.
+
+\subsection*{Use Case Diagram}
+\label{def:usecase}
+A \textbf{use case diagram} is a UML diagram showing actors (users or systems) 
+and their interactions with the system. Used to identify functional 
+requirements.
+
+\subsection*{Sequence Diagram}
+\label{def:sequence}
+A \textbf{sequence diagram} is a UML diagram showing the temporal order of 
+message exchanges between objects. Used to illustrate operational flows and 
+failure scenarios.

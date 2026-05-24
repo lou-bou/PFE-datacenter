@@ -1,0 +1,554 @@
+\section{ToR initial setup}
+\addcontentsline{toc}{section}{C.4 ToR initial setup}
+
+The following scripts configure hostname, VLANs, management SVI, SSH access, and MLAG peering on each ToR switch before server downlink ports are applied.
+
+\subsection{Management and VLAN setup}
+\addcontentsline{toc}{section}{C.4.1 Management and VLAN setup}
+
+\subsubsection{ToR A-1}
+\begin{lstlisting}[caption={ToR A-1: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORA-1
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.200/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR A-2}
+\begin{lstlisting}[caption={ToR A-2: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORA-2
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.201/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR B-1}
+\begin{lstlisting}[caption={ToR B-1: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORB-1
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.202/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR B-2}
+\begin{lstlisting}[caption={ToR B-2: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORB-2
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.203/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR C-1}
+\begin{lstlisting}[caption={ToR C-1: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORC-1
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.204/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR C-2}
+\begin{lstlisting}[caption={ToR C-2: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORC-2
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.205/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR D-1}
+\begin{lstlisting}[caption={ToR D-1: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORD-1
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.206/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR D-2}
+\begin{lstlisting}[caption={ToR D-2: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname TORD-2
+
+vlan 110
+  name MANAGEMENT
+vlan 120
+  name DATABASE
+vlan 130
+  name APP
+vlan 210
+  name DMZ_MANAGEMENT
+vlan 220
+  name DMZ_SERVICE
+
+interface Vlan110
+  ip address 10.10.10.207/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{MLAG setup}
+\addcontentsline{toc}{section}{C.4.2 MLAG setup}
+
+\subsubsection{ToR A-1}
+\begin{lstlisting}[caption={ToR A-1: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.1/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORA
+  local-interface Vlan110
+  peer-address 10.10.10.201
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 1
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR A-2}
+\begin{lstlisting}[caption={ToR A-2: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.2/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORA
+  local-interface Vlan110
+  peer-address 10.10.10.200
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 100
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR B-1}
+\begin{lstlisting}[caption={ToR B-1: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.5/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORB
+  local-interface Vlan110
+  peer-address 10.10.10.203
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 1
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR B-2}
+\begin{lstlisting}[caption={ToR B-2: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.6/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORB
+  local-interface Vlan110
+  peer-address 10.10.10.202
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 100
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR C-1}
+\begin{lstlisting}[caption={ToR C-1: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.9/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORC
+  local-interface Vlan110
+  peer-address 10.10.10.205
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 1
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR C-2}
+\begin{lstlisting}[caption={ToR C-2: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.10/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORC
+  local-interface Vlan110
+  peer-address 10.10.10.204
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 100
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR D-1}
+\begin{lstlisting}[caption={ToR D-1: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.13/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORD
+  local-interface Vlan110
+  peer-address 10.10.10.207
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 1
+
+end
+write memory
+\end{lstlisting}
+
+\subsubsection{ToR D-2}
+\begin{lstlisting}[caption={ToR D-2: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Port-Channel1
+  switchport
+  switchport mode trunk
+
+interface Ethernet7
+  description MLAG_PEER_1
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet8
+  description MLAG_PEER_2
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet9
+  description MLAG_DAD
+  no switchport
+  ip address 172.16.255.14/30
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-TORD
+  local-interface Vlan110
+  peer-address 10.10.10.206
+  peer-link Port-Channel1
+  dual-primary detection delay 5 action errdisable all-interfaces
+  primary-priority 100
+
+end
+write memory
+\end{lstlisting}

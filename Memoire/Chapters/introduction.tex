@@ -1,0 +1,20 @@
+\chapter*{General Introduction}
+\addcontentsline{toc}{chapter}{General Introduction}
+
+In an era defined by the exponential growth of digital data and the increasing demand for highly available computing infrastructure, data centers have become the cornerstone of modern information systems. Their design is no longer a purely physical engineering task but a complex discipline combining network architecture, virtualization, and security.
+
+Modern enterprises increasingly require infrastructure that is highly available, scalable, secure, and centrally manageable to reliably deliver digital services at scale. Traditional three-tier data center architectures suffer from limitations such as high east-west latency, limited scalability, and potential single points of failure. To address these challenges, this work adopts a Spine-Leaf architecture combined with a layered security model separating Trust and DMZ zones through redundant firewalls. The project also implements multi-level redundancy and validates network resilience through failure testing, resulting in a fully simulated and production-oriented data center design.
+
+This dissertation, prepared for the Licence degree in ISIL at USTHB, addresses the design and simulation of a modern data center architecture. Rather than working with physical equipment, this project constructs a complete virtual environment using PNETLab to emulate network devices (core switches, firewalls, and ToR switches) and VMware to virtualize servers across four cabinets.
+
+The adopted architecture is a Spine-Leaf model, combining the full-mesh connectivity of Spine-Leaf with the security structure of the traditional three-tier model. Four cabinets (A, B, C, and D) contain eight ToR leaf switches interconnected through two EoR spine switches. Two firewalls enforce strict zone separation between the Trust zone (Cabinets A, B, and C) and the DMZ (Cabinet D).
+
+This dissertation is organized into three chapters:
+
+\textbf{Chapter 1: State of the Art} presents fundamental concepts of data centers, their evolution, key components, and architectural models including three-tier, Spine-Leaf, and the model adopted.
+
+\textbf{Chapter 2: Conception and Design} details the system design, including actor identification, functional and non-functional requirements, UML diagrams (use case and sequence), VLAN segmentation, IP addressing, VRRP, MLAG, security zones, and HLD/LLD documentation.
+
+\textbf{Chapter 3: Implementation and Simulation} covers the practical realization, including device configuration in PNETLab, VMware virtualization setup, connectivity tests, and redundancy validation.
+
+We conclude by summarizing the work accomplished and outlining perspectives for future improvement.

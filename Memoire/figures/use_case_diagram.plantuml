@@ -1,0 +1,58 @@
+@startuml
+' Export PNG at 2x or 3x from the PlantUML extension for sharp print output
+scale 2
+left to right direction
+
+actor "external user" as extUser
+actor "system admin" as sysAdmin
+actor "network admin" as netAdmin
+actor "superadmin" as superAdmin #red
+actor "security admin" as secAdmin
+actor "it admin" as itAdmin
+
+rectangle "the system use case" {
+  (access dmz services) as accessDMZ
+  (deploy the vm) as deployVM
+  (configure server multi nic) as configNic
+  (configure firewall rules) as configFirewall
+  (configure security zones) as configSecZones
+  (run compliance scan) as runCompliance
+  (configure vlan) as configVlan
+  (configure mlag) as configMlag
+  (configure vrrp) as configVrrp
+  (configure trunk/acess ports) as configTrunk
+  (authenticate user) as authUser
+  (monitor cabinet health) as monitorCabinet
+  (audit logs) as auditLogs
+}
+
+' Actor associations
+extUser --> accessDMZ
+sysAdmin --> accessDMZ
+sysAdmin --> deployVM
+sysAdmin --> configNic
+netAdmin --> configVlan
+netAdmin --> configMlag
+netAdmin --> configVrrp
+netAdmin --> configTrunk
+superAdmin --> auditLogs
+superAdmin --> accessDMZ
+superAdmin --> deployVM
+secAdmin --> configFirewall
+secAdmin --> configSecZones
+itAdmin --> monitorCabinet
+itAdmin --> authUser
+
+' Include relationships
+configNic ..> configSecZones : <<include>>
+configSecZones ..> authUser : <<include>>
+configVlan ..> authUser : <<include>>
+configMlag ..> authUser : <<include>>
+configVrrp ..> authUser : <<include>>
+configTrunk ..> authUser : <<include>>
+
+' Extend relationships
+runCompliance ..> configFirewall : <<extend>>
+configTrunk ..> monitorCabinet : <<extend>>
+
+@enduml

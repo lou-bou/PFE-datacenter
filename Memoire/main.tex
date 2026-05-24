@@ -1,0 +1,213 @@
+\documentclass[11pt]{report}
+%====================== PACKAGES ======================
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+\usepackage[Glenn]{fncychap} 
+\usepackage{fancyhdr}
+\usepackage[final]{pdfpages}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+%pour gérer les positionnement d'images
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible,keepspaces=true}
+\usepackage{enumitem}
+%pour la mise en page des tableaux
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{dcolumn,ragged2e}
+\usepackage{siunitx}
+\usepackage{longtable}
+\usepackage{booktabs}   
+\usepackage{ltablex}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+%pour utiliser \floatbarrier
+\usepackage{colortbl}
+%espacement entre les lignes
+\usepackage{setspace}
+%modifier la mise en page de l'abstract
+\usepackage{abstract}
+%police et mise en page (marges) du document
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{microtype}
+%Pour les galerie d'images
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{multirow}
+%\usepackage{subfig}
+%\usepackage{graphicx}
+%\usepackage{geometry}
+\usepackage{titlesec}
+\newtheorem{definition}{Definition}
+\usepackage{rotating}
+\usepackage{pdflscape}
+%\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{wrapfig}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    anchorcolor=black,
+    citecolor=blue,
+}
+\usepackage{subcaption}
+\usepackage{tablefootnote}
+\usepackage[acronym]{glossaries}
+\usepackage{xcolor}
+\usepackage{caption}
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    textfont=it,
+    skip=8pt
+}
+\captionsetup[figure]{position=bottom}
+\captionsetup[table]{position=bottom}
+\captionsetup[lstlisting]{position=bottom}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+% Front matter: roman numerals (introduction will be page 1)
+\pagenumbering{roman}
+\setcounter{page}{1}
+%%d'ici aussi
+\begin{titlepage}   
+    	\begin{minipage}{1\linewidth}
+			\centering
+			\begin{tabular}{ccc}
+				\begin{tabular}{c}
+					\\
+					\includegraphics[scale=0.2]{figures/huawei.png}
+				\end{tabular}
+				&
+				\begin{tabular}{c}
+					\\
+					\text{People's Democratic Republic of Algeria}\\
+                    \text{Ministry of Higher Education and Scientific Research}\\
+				\end{tabular}
+				&
+				\begin{tabular}{c}
+					\\
+					\includegraphics[scale=0.07]{figures/usthb.png}
+				\end{tabular}
+			\end{tabular}
+		\end{minipage}
+    
+    
+       
+    \begin{center}
+        
+        \textbf{University of Science and Technology Houari Boumediene}\\
+        \text{Faculty of Computer Science}\\
+        \text{Field: Computer Science}\\
+        \textbf{Licence Thesis}\\
+        \text{Specialization: ISIL}\\
+        
+        
+        
+    \end{center}
+    \vspace*{0.5 cm}
+    \begin{center}
+    
+    \end{center}
+    
+    \rule{\linewidth}{0.2 mm}
+	{ \LARGE  
+	   \begin{center}
+	       \textbf{Topic: }\\
+	       \textbf{Realization of a Data Center Modern Network Architecture}\\
+	       
+	   \end{center} 
+	   
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	}
+	
+	\begin{minipage}{0.5\textwidth}
+		\begin{flushleft} \large
+		    \textbf{Supervised by :}\\
+		    \text{TETBIRT Ishak}\\
+		    \text{GUEBLI Wassila}\\
+		    \textbf{Jury Members :}\\
+		    \text{GUEBLI Wassila}\\
+		    \text{BENCHAIBA Mahfoud}\\
+		    
+			\end{flushleft}
+			\end{minipage}~
+		\begin{minipage}{0.4\textwidth}
+            
+		\begin{flushright} \large
+			\textbf{Presented by :} \\
+            \text{GRIMES Roumaissa} \\
+            \text{ZEGHACHE Aya} \\
+            \text{BAKIRI Samy} \\
+            \text{BOUSSAID Louai} \\
+            	\textbf{Submission date :} \\
+            \text{16/05/2026} \\
+		\end{flushright}
+	\end{minipage}\\[2 cm]
+	\begin{center}
+	    Projet : ISIL14/2026
+	\end{center}
+\end{titlepage}
+\include{Chapters/remerciements}
+\hypersetup{hidelinks}
+\tableofcontents
+\include{Chapters/acronymes}
+\listoffigures
+\listoftables
+
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Compact layout: introduction through conclusions only
+\linespread{1.12}\selectfont
+\setlength{\intextsep}{4pt}
+\setlength{\textfloatsep}{6pt}
+\setlength{\floatsep}{4pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{2pt}
+\titlespacing*{\chapter}{0pt}{8pt}{6pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+\titlespacing*{\paragraph}{0pt}{4pt}{2pt}
+
+\include{Chapters/introduction}
+\include{Chapters/chapitre1}
+\include{Chapters/chapitre2}
+\include{Chapters/chapitre3}
+\include{Chapters/conclusions}
+
+% Back matter after conclusion: no page numbers (conclusion stays the last numbered page)
+\pagenumbering{gobble}
+\appendix
+\input{Chapters/appendixA_definitions}
+\input{Chapters/appendixB_lld_uml}
+\input{Chapters/appendixC_configs}
+\input{Chapters/appendixD_tests}
+\input{Chapters/appendixE_config_verify}
+
+% ===== BIBLIOGRAPHY (at the very end) =====
+\clearpage
+\bibliographystyle{unsrtnat}
+\renewcommand{\bibname}{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{references}
+\include{Chapters/resume}
+
+\end{document}

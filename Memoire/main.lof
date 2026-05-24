@@ -1,0 +1,54 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 3-Tier Architecture}}{3}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Spine-Leaf Architecture}}{3}{figure.caption.17}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Huawei CloudEngine S5731 Switch Model}}{4}{figure.caption.20}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Huawei HiSecEngine USG6700E Firewall Model}}{4}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Dell PowerEdge R760xa Server Model}}{5}{figure.caption.25}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Spine-Leaf topology of the proposed data center.}}{7}{figure.caption.36}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Leaf Layer}}{8}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Spine Layer}}{8}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Network Edge}}{9}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces External cloud and network access}}{9}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Use case diagram of the data center system.}}{11}{figure.caption.55}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Sequence diagram: Network administrator configuring EoR spine switches.}}{12}{figure.caption.58}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sequence diagram: System administrator configuring a server.}}{13}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces VLAN assignment table.}}{14}{figure.caption.69}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Firewalls VRRP}}{15}{figure.caption.73}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces EoRs Pair MLAG Architecture}}{15}{figure.caption.75}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces VRRP (CARP) on FW-2 after FW-1 failure.}}{18}{figure.caption.96}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces MLAG status on EoR-2 after EoR-1 failure.}}{18}{figure.caption.98}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces MLAG status on ToR B-2 after ToR B-1 failure.}}{18}{figure.caption.100}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Complete device inventory (LLD).}}{}{figure.caption.108}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Complete IP addressing plan (LLD).}}{}{figure.caption.110}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Port connections matrix (part 1).}}{}{figure.caption.112}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Port connections matrix (part 2).}}{}{figure.caption.113}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Port connections matrix (part 3).}}{}{figure.caption.114}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Ping test: Server~1 $\rightarrow $ Server~2 (management, 10.10.10.2).}}{}{figure.caption.2014}%
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Ping test: Server~1 $\rightarrow $ Server~2 (service, 10.10.20.2).}}{}{figure.caption.2015}%
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Ping test: Server~1 $\rightarrow $ Server~3 (service, 10.10.20.3).}}{}{figure.caption.2017}%
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Ping test: Server~1 $\rightarrow $ Server~5 (service, 10.10.30.1).}}{}{figure.caption.2018}%
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Ping test: Server~7 $\rightarrow $ Server~8 (service, 10.20.20.2).}}{}{figure.caption.2019}%
+\contentsline {figure}{\numberline {D.6}{\ignorespaces Ping test: Server~1 $\rightarrow $ Server~7 (management, 10.20.10.1), permitted.}}{}{figure.caption.2021}%
+\contentsline {figure}{\numberline {D.7}{\ignorespaces Ping test: Server~7 $\rightarrow $ Server~1 (management, 10.10.10.1), blocked.}}{}{figure.caption.2022}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces EoR-1: VLANs (\texttt {show vlan}).}}{}{figure.caption.2025}%
+\contentsline {figure}{\numberline {E.2}{\ignorespaces EoR-1: IP addressing (\texttt {show ip interface brief}).}}{}{figure.caption.2026}%
+\contentsline {figure}{\numberline {E.3}{\ignorespaces EoR-1: Interfaces and Port-Channels.}}{}{figure.caption.2027}%
+\contentsline {figure}{\numberline {E.4}{\ignorespaces EoR-1: MLAG (\texttt {show mlag}).}}{}{figure.caption.2028}%
+\contentsline {figure}{\numberline {E.5}{\ignorespaces ToR A-1: VLANs (\texttt {show vlan brief}).}}{}{figure.caption.2030}%
+\contentsline {figure}{\numberline {E.6}{\ignorespaces ToR A-1: IP addressing.}}{}{figure.caption.2031}%
+\contentsline {figure}{\numberline {E.7}{\ignorespaces ToR A-1: Interfaces and Port-Channels.}}{}{figure.caption.2032}%
+\contentsline {figure}{\numberline {E.8}{\ignorespaces ToR A-1: MLAG (\texttt {show mlag}).}}{}{figure.caption.2033}%
+\contentsline {figure}{\numberline {E.9}{\ignorespaces FW-1: VLAN interfaces.}}{}{figure.caption.2035}%
+\contentsline {figure}{\numberline {E.10}{\ignorespaces FW-1: Interfaces and IPs.}}{}{figure.caption.2036}%
+\contentsline {figure}{\numberline {E.11}{\ignorespaces FW-1: CARP (master).}}{}{figure.caption.2037}%
+\contentsline {figure}{\numberline {E.12}{\ignorespaces FW-2: CARP (backup).}}{}{figure.caption.2038}%
+\contentsline {figure}{\numberline {E.13}{\ignorespaces FW-1: Firewall rules.}}{}{figure.caption.2039}%
+\contentsline {figure}{\numberline {E.14}{\ignorespaces Server~1: Bonding and IP assignments (\texttt {ip a}).}}{}{figure.caption.2041}%

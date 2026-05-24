@@ -1,0 +1,22 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Cabinet organization by zone and function}}{9}{table.caption.46}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Primary actors of the data center system}}{10}{table.caption.49}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Sample device inventory (one device per type)}}{13}{table.caption.63}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces ToR A-1 $\rightarrow $ Server 1 (access, copper trunk).}}{14}{table.caption.65}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces ToR A-1 $\rightarrow $ EoR-1 (uplink, fiber trunk).}}{14}{table.caption.66}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces EoR-1 $\rightarrow $ FW-1 (edge, fiber trunk).}}{14}{table.caption.67}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Sample IP and interface assignments (one device per type).}}{14}{table.caption.71}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces PNETLab (Arista vEOS) to LLD port mapping.}}{16}{table.caption.87}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Server-to-server ping test results}}{17}{table.caption.93}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces VLAN sub-interfaces on \texttt {lagg0}.}}{}{table.caption.432}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Firewall interface assignments.}}{}{table.caption.434}%
+\contentsline {table}{\numberline {C.3}{\ignorespaces Firewall interface IP addresses (FW-1 and FW-2).}}{}{table.caption.436}%
+\contentsline {table}{\numberline {C.4}{\ignorespaces CARP virtual gateway addresses (configured on FW-1).}}{}{table.caption.438}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

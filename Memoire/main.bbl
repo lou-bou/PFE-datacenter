@@ -1,0 +1,123 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Cisco Systems}(2026{\natexlab{a}})]{cisco}
+{Cisco Systems}.
+\newblock Data center design guide.
+\newblock
+  \url{https://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Data_Center/DC_Infra2_5/DCI_SRND_2_5a_book.html},
+  2026{\natexlab{a}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{IEEE}(2026)]{dc}
+{IEEE}.
+\newblock Ieee standard for data center design.
+\newblock \url{https://standards.ieee.org}, 2026.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Huawei Technologies}(2023)]{huawei}
+{Huawei Technologies}.
+\newblock Annual report 2023.
+\newblock \url{https://www.huawei.com/en/annual-report/2023}, 2023.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Huawei Technologies}(2026{\natexlab{a}})]{three}
+{Huawei Technologies}.
+\newblock Deployment differences between two-layer and three-layer network
+  architectures.
+\newblock
+  \url{https://support.huawei.com/enterprise/en/doc/EDOC1000069520/3dd72ce8/deployment-differences-between-two-layer-and-three-layer-network-architectures},
+  2026{\natexlab{a}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Huawei Technologies}(2026{\natexlab{b}})]{spine}
+{Huawei Technologies}.
+\newblock Spine-leaf network architecture.
+\newblock
+  \url{https://support.huawei.com/enterprise/en/doc/EDOC1100023542/99a9b65f/spine-leaf-network-architecture},
+  2026{\natexlab{b}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Arista Networks}(2026)]{switches}
+{Arista Networks}.
+\newblock Leaf-spine architecture for data centers.
+\newblock
+  \url{https://www.arista.com/assets/data/pdf/Whitepapers/Arista_Leaf_Spine_Architecture_for_Data_Centers.pdf},
+  2026.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Cisco Systems}(2026{\natexlab{b}})]{firewall}
+{Cisco Systems}.
+\newblock What is a firewall?
+\newblock
+  \url{https://www.cisco.com/site/us/en/learn/topics/security/what-is-a-firewall.html},
+  2026{\natexlab{b}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{VMware}(2026)]{server}
+{VMware}.
+\newblock {vSphere} networking guide.
+\newblock
+  \url{https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-networking}, 2026.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Cisco Systems}(2026{\natexlab{c}})]{vlan}
+{Cisco Systems}.
+\newblock What is network segmentation?
+\newblock
+  \url{https://www.cisco.com/site/us/en/learn/topics/security/what-is-network-segmentation.html},
+  2026{\natexlab{c}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{National Institute of Standards and Technology}(2010)]{high}
+{National Institute of Standards and Technology}.
+\newblock Contingency planning guide for federal information systems ({SP}
+  800-34 rev.~1).
+\newblock
+  \url{https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final}, 2010.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{IBM}(2026{\natexlab{a}})]{virtu}
+{IBM}.
+\newblock What is virtualization?
+\newblock \url{https://www.ibm.com/think/topics/virtualization},
+  2026{\natexlab{a}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Huawei Technologies}(2026{\natexlab{c}})]{ensp}
+{Huawei Technologies}.
+\newblock ensp pro.
+\newblock
+  \url{https://info.support.huawei.com/info-finder/encyclopedia/en/eNSP+Pro.html},
+  2026{\natexlab{c}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{Oracle}(2026)]{virtualbox}
+{Oracle}.
+\newblock Oracle {VM} virtualbox user manual.
+\newblock \url{https://www.virtualbox.org/manual/UserManual.html}, 2026.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{IBM}(2026{\natexlab{b}})]{vmware}
+{IBM}.
+\newblock What is vmware?
+\newblock \url{https://www.ibm.com/think/topics/vmware}, 2026{\natexlab{b}}.
+\newblock Accessed 16 May 2026.
+
+\bibitem[{PNETLab}(2026)]{pnetlab}
+{PNETLab}.
+\newblock {PNETLab} official documentation.
+\newblock \url{https://pnetlab.com/pages/documentation}, 2026.
+\newblock Accessed 16 May 2026.
+
+\bibitem[Tatham(2026)]{putty}
+Simon Tatham.
+\newblock Putty: A free {SSH} and telnet client.
+\newblock \url{https://www.chiark.greenend.org.uk/~sgtatham/putty/}, 2026.
+\newblock Accessed 16 May 2026.
+
+\end{thebibliography}

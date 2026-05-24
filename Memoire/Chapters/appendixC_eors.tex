@@ -1,0 +1,372 @@
+\section{EoRs Initial Setup}
+\addcontentsline{toc}{section}{C.6 EoRs Initial Setup}
+
+The following scripts configure hostname, VLANs, management SVI, and SSH access on each EoR switch.
+
+\subsection{EoR 1}
+\addcontentsline{toc}{section}{C.6.1 EoR 1}
+\begin{lstlisting}[caption={EoR 1: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname EOR1
+
+vlan 110
+  name MANAGEMENT
+
+interface Vlan110
+  ip address 10.10.10.208/24
+  no shut
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{EoR 2}
+\addcontentsline{toc}{section}{C.6.2 EoR 2}
+\begin{lstlisting}[caption={EoR 2: initial management and VLAN setup.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+hostname EOR2
+
+vlan 110
+  name MANAGEMENT
+ 
+interface Vlan110
+  ip address 10.10.10.209/24
+  no shutdown
+
+management ssh
+  no shutdown
+
+username admin privilege 15 secret Admin@123
+
+end
+write memory
+\end{lstlisting}
+
+\section{EoRs MLAG Setup}
+\addcontentsline{toc}{section}{C.7 EoRs MLAG Setup}
+
+The following scripts configure the MLAG peer-link and domain configuration on each EoR switch.
+
+\subsection{EoR 1}
+\addcontentsline{toc}{section}{C.7.1 EoR 1}
+\begin{lstlisting}[caption={EoR 1: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet23
+  no switchport
+  ip address 172.16.255.1/30
+  no shutdown
+
+interface Ethernet21
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet22
+  no shutdown
+  channel-group 1 mode active
+
+interface Port-Channel1
+  description MLAG-PEER-LINK
+  switchport
+  switchport mode trunk
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-EOR
+  local-interface Vlan110
+  peer-address 10.10.10.209
+  peer-link Port-Channel1
+  primary-priority 1
+  dual-primary detection delay 5 action errdisable all-interfaces
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{EoR 2}
+\addcontentsline{toc}{section}{C.7.2 EoR 2}
+\begin{lstlisting}[caption={EoR 2: MLAG peer-link and domain configuration.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+interface Ethernet23
+  no switchport
+  ip address 172.16.255.2/30
+  no shutdown
+
+interface Ethernet21
+  no shutdown
+  channel-group 1 mode active
+
+interface Ethernet22
+  no shutdown
+  channel-group 1 mode active
+
+interface Port-Channel1
+  description MLAG-PEER-LINK
+  switchport
+  switchport mode trunk
+  no shutdown
+
+mlag configuration
+  domain-id MLAG-EOR
+  local-interface Vlan110
+  peer-address 10.10.10.208
+  peer-link Port-Channel1
+  primary-priority 100
+  dual-primary detection delay 5 action errdisable all-interfaces
+
+end
+write memory
+\end{lstlisting}
+
+\section{EoRs Downlinks to ToRs}
+\addcontentsline{toc}{section}{C.8 EoRs Downlinks to ToRs}
+
+The following scripts configure the downlink Port-Channels from each EoR to the ToR switches in each cabinet.
+
+\subsection{EoR 1}
+\addcontentsline{toc}{section}{C.8.1 EoR 1}
+\begin{lstlisting}[caption={EoR 1: downlinks to ToR switches.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+! Cabinet A
+interface Ethernet1
+  description Downlink_TorA1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet2
+  description Downlink_TorA2
+  no shutdown
+  channel-group 4 mode on
+
+interface Port-Channel3
+  description TorA1_MLAG3
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 3
+  no shutdown
+
+interface Port-Channel4
+  description TorA2_MLAG4
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 4
+  no shutdown
+
+! Cabinet B
+interface Ethernet3
+  description Downlink_TorB1
+  no shutdown
+  channel-group 5 mode on
+
+interface Ethernet4
+  description Downlink_TorB2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel5
+  description TorB1_MLAG5
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 5
+  no shutdown
+
+interface Port-Channel6
+  description TorB2_MLAG6
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+! Cabinet C
+interface Ethernet5
+  description Downlink_TorC1
+  no shutdown
+  channel-group 7 mode on
+
+interface Ethernet6
+  description Downlink_TorC2
+  no shutdown
+  channel-group 8 mode on
+
+interface Port-Channel7
+  description TorC1_MLAG7
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 7
+  no shutdown
+
+interface Port-Channel8
+  description TorC2_MLAG8
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 8
+  no shutdown
+
+! Cabinet D
+interface Ethernet7
+  description Downlink_TorD1
+  no shutdown
+  channel-group 9 mode on
+
+interface Ethernet8
+  description Downlink_TorD2
+  no shutdown
+  channel-group 10 mode on
+
+interface Port-Channel9
+  description TorD1_MLAG9
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 9
+  no shutdown
+
+interface Port-Channel10
+  description TorD2_MLAG10
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 10
+  no shutdown
+
+end
+write memory
+\end{lstlisting}
+
+\subsection{EoR 2}
+\addcontentsline{toc}{section}{C.8.2 EoR 2}
+\begin{lstlisting}[caption={EoR 2: downlinks to ToR switches.},basicstyle=\ttfamily\footnotesize,breaklines=true]
+enable
+configure terminal
+
+! Cabinet A
+interface Ethernet1
+  description Downlink_TorA1
+  no shutdown
+  channel-group 3 mode on
+
+interface Ethernet2
+  description Downlink_TorA2
+  no shutdown
+  channel-group 4 mode on
+
+interface Port-Channel3
+  description TorA1_MLAG3
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 3
+  no shutdown
+
+interface Port-Channel4
+  description TorA2_MLAG4
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 4
+  no shutdown
+
+! Cabinet B
+interface Ethernet3
+  description Downlink_TorB1
+  no shutdown
+  channel-group 5 mode on
+
+interface Ethernet4
+  description Downlink_TorB2
+  no shutdown
+  channel-group 6 mode on
+
+interface Port-Channel5
+  description TorB1_MLAG5
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 5
+  no shutdown
+
+interface Port-Channel6
+  description TorB2_MLAG6
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,120
+  mlag 6
+  no shutdown
+
+! Cabinet C
+interface Ethernet5
+  description Downlink_TorC1
+  no shutdown
+  channel-group 7 mode on
+
+interface Ethernet6
+  description Downlink_TorC2
+  no shutdown
+  channel-group 8 mode on
+
+interface Port-Channel7
+  description TorC1_MLAG7
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 7
+  no shutdown
+
+interface Port-Channel8
+  description TorC2_MLAG8
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 110,130
+  mlag 8
+  no shutdown
+
+! Cabinet D
+interface Ethernet7
+  description Downlink_TorD1
+  no shutdown
+  channel-group 9 mode on
+
+interface Ethernet8
+  description Downlink_TorD2
+  no shutdown
+  channel-group 10 mode on
+
+interface Port-Channel9
+  description TorD1_MLAG9
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 9
+  no shutdown
+
+interface Port-Channel10
+  description TorD2_MLAG10
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 210,220
+  mlag 10
+  no shutdown
+
+end
+write memory
+\end{lstlisting}

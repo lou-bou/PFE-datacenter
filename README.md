@@ -1,6 +1,6 @@
 # PFE-License
 
-Details like HLD, resources, and slides can be found in this [Notion website](https://rogue-parrot-0a5.notion.site/Realization-of-a-Modern-Data-Center-Network-36a2d55e007280d0973afdf7eca41df9?pvs=73).
+Details like HLD and scripts can be found in this [Notion website](https://rogue-parrot-0a5.notion.site/Realization-of-a-Modern-Data-Center-Network-36a2d55e007280d0973afdf7eca41df9?pvs=73).
 
 The "Memoire" directory contains Latex files for the Memoire and the PDF.
 
